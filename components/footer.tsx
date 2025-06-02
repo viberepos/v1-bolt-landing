@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
@@ -95,12 +96,18 @@ export function Footer() {
             variants={logoVariants}
             className="col-span-1 md:col-span-2"
           >
-            <motion.h3 
-              className="text-2xl font-bold text-[#222222] mb-4"
+            <motion.div 
+              className="mb-4"
               whileHover={{ scale: 1.05 }}
             >
-              VibeApps
-            </motion.h3>
+              <Image 
+                src="/images/logo/2 Logo VibeApps poziom bez tła.png" 
+                alt="VibeApps" 
+                width={130} 
+                height={35}
+                className="h-8 w-auto"
+              />
+            </motion.div>
             <motion.p 
               variants={itemVariants}
               className="text-[#222222]/70 max-w-md"

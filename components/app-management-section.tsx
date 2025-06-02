@@ -92,8 +92,8 @@ export function AppManagementSection() {
             <motion.div variants={imageVariants} className="flex justify-center">
               <div className="w-full max-w-md">
                 <Image
-                  src="https://whatfix.com/blog/wp-content/uploads/2022/07/Beige-Modern-Pomodoro-Technique-Comparison-Chart-Infographic-Graph.png"
-                  alt="Porównanie technik zarządzania"
+                  src="/images/case-study/1 VibeApps Aplikacja dla branży finansowej.png"
+                  alt="Aplikacja VibeApps dla branży finansowej"
                   width={400}
                   height={600}
                   className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -105,8 +105,8 @@ export function AppManagementSection() {
             <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <motion.div variants={imageVariants}>
                 <Image
-                  src="https://www.zohowebstatic.com/sites/zweb/images/one/one-tap-launcher.png"
-                  alt="Launcher aplikacji"
+                  src="/images/case-study/1.png"
+                  alt="Panel aplikacji finansowej"
                   width={300}
                   height={500}
                   className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -115,8 +115,8 @@ export function AppManagementSection() {
               
               <motion.div variants={imageVariants}>
                 <Image
-                  src="https://www.zohowebstatic.com/sites/zweb/images/one/notifications.png"
-                  alt="System powiadomień"
+                  src="/images/case-study/3.png"
+                  alt="Dashboard aplikacji finansowej"
                   width={300}
                   height={500}
                   className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"

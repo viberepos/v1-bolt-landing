@@ -47,7 +47,6 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#f9f5ee] to-[#f9f5ee]/80 pt-4 pb-8 lg:pt-6 lg:pb-12">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] opacity-5"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
           <motion.div
