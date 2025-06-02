@@ -11,6 +11,13 @@ export function Footer() {
     threshold: 0.1,
   })
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,14 +108,18 @@ export function Footer() {
               Transformujemy pomysły w działające rozwiązania. Szybciej, taniej i skalowalnie niż tradycyjne firmy
               software'owe.
             </motion.p>
-            <div className="space-y-3">
+            <div className="space-y-3 mt-8">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-[#222222]" />
-                <span className="text-[#222222]/70">kontakt@vibeapps.pl</span>
+                <span className="text-[#222222]/70">biuro@vibeapps.pl</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-[#222222]" />
-                <span className="text-[#222222]/70">+48 123 456 789</span>
+                <span className="text-[#222222]/70">+48 530 002 009</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-[#222222]" />
+                <span className="text-[#222222]/70">+48 788 758 361</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-[#222222]" />
@@ -117,94 +128,48 @@ export function Footer() {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="md:col-start-4">
             <motion.h4 
               className="font-semibold text-[#222222] mb-4"
               whileHover={{ color: "#222222aa" }}
             >
-              Usługi
+              Nawigacja
             </motion.h4>
             <motion.ul 
               variants={containerVariants}
               className="space-y-2"
             >
               <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
+                <button 
+                  onClick={() => scrollToSection('#service-packages-section')}
+                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  MVP Check
-                </Link>
+                  Usługi
+                </button>
               </motion.li>
               <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
+                <button 
+                  onClick={() => scrollToSection('#cost-calculator-section')}
+                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  Evolve
-                </Link>
+                  Policz koszty
+                </button>
               </motion.li>
               <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
+                <button 
+                  onClick={() => scrollToSection('#case-study-section')}
+                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  Advanced
-                </Link>
+                  Aplikacja dla branży finansowej
+                </button>
               </motion.li>
               <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
-                >
-                  Ultimate
-                </Link>
-              </motion.li>
-            </motion.ul>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <motion.h4 
-              className="font-semibold text-[#222222] mb-4"
-              whileHover={{ color: "#222222aa" }}
-            >
-              Firma
-            </motion.h4>
-            <motion.ul 
-              variants={containerVariants}
-              className="space-y-2"
-            >
-              <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
+                <button 
+                  onClick={() => scrollToSection('#what-sets-us-apart-section')}
+                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
                   O nas
-                </Link>
-              </motion.li>
-              <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
-                >
-                  Case Studies
-                </Link>
-              </motion.li>
-              <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
-                >
-                  Blog
-                </Link>
-              </motion.li>
-              <motion.li variants={linkVariants}>
-                <Link 
-                  href="#" 
-                  className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"
-                >
-                  Kontakt
-                </Link>
+                </button>
               </motion.li>
             </motion.ul>
           </motion.div>
