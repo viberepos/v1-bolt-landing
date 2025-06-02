@@ -13,23 +13,23 @@ export function ProblemSection() {
   const problems = [
     {
       icon: Clock,
-      title: "Zespół narzeka na powtarzalną pracę",
-      description: "Pracownicy tracą motywację wykonując te same zadania, które można zautomatyzować",
+      title: "Zespół narzeka na powtarzalne procesy",
+      description: "Pracownicy tracą motywację wykonując zadania, które mogą wykonywać się same",
     },
     {
       icon: AlertTriangle,
-      title: "Dziesiątki telefonów dziennie",
-      description: "Ciągłe pytania o etap prac i status projektów zakłócają produktywną pracę",
+      title: "Dziesiątki telefonów dziennie z pytaniami o etap prac",
+      description: "Ciągłe pytania o status realizacji, czy obecny etap prac zakłócają produktywną pracę",
     },
     {
       icon: TrendingDown,
-      title: "Częste zmiany CRM",
-      description: "Co kilka miesięcy nowy system - albo za mało funkcji, albo za drogi plan",
+      title: "Częste zmiany CRM to koszty, nerwy i utrata czasu",
+      description: "Co kilka miesięcy nowy system - albo za mało funkcji, albo za drogi plan to najczęstsze powody zmian",
     },
     {
       icon: DollarSign,
-      title: "Nieefektywne procesy kosztują",
-      description: "Każdy dzień z przestarzałymi procesami to wymierny koszt dla biznesu",
+      title: "Nieefektywne procesy kosztują czas i pieniądze",
+      description: "Każdy dzień z przestarzałymi procesami to duży koszt dla firmy i demotywacja dla zespołu",
     },
   ]
 
@@ -96,7 +96,7 @@ export function ProblemSection() {
             >
               <motion.div 
                 className="inline-flex items-center justify-center w-16 h-16 bg-[#f9f5ee] rounded-full mb-6 group-hover:bg-[#222222] transition-colors duration-300"
-                whileHover={{ rotate: 360 }}
+                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
               >
                 <problem.icon className="h-8 w-8 text-[#222222] group-hover:text-[#f9f5ee] transition-colors duration-300" />

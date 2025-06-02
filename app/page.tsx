@@ -3,6 +3,7 @@ import { ProblemSection } from "@/components/problem-section"
 import { CostCalculator } from "@/components/cost-calculator"
 import { WhyChooseUs } from "@/components/why-choose-us"
 import { CaseStudy } from "@/components/case-study"
+import { AppManagementSection } from "@/components/app-management-section"
 import { ServicePackages } from "@/components/service-packages"
 import { WhatSetsUsApart } from "@/components/what-sets-us-apart"
 import { TechStack } from "@/components/tech-stack"
@@ -20,6 +21,7 @@ export default function Home() {
       <CostCalculator />
       <WhyChooseUs />
       <CaseStudy />
+      <AppManagementSection />
       <ServicePackages />
       <WhatSetsUsApart />
       <TechStack />

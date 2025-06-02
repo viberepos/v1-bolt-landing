@@ -46,7 +46,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#f9f5ee] to-[#f9f5ee]/80 py-20 lg:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#f9f5ee] to-[#f9f5ee]/80 pt-4 pb-8 lg:pt-6 lg:pb-12">
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] opacity-5"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
@@ -61,7 +61,7 @@ export function Hero() {
               variants={itemVariants}
               className="text-4xl font-bold tracking-tight text-[#222222] sm:text-5xl lg:text-6xl"
             >
-              Czy Twoja firma traci czas i pieniądze na{" "}
+              Ile Twoja firma traci czasu i pieniądzy na{" "}
               <span className="text-[#222222] underline decoration-4 decoration-[#222222]/30">
                 przestarzałych procesach
               </span>{" "}
@@ -102,16 +102,28 @@ export function Hero() {
               <Button 
                 size="lg" 
                 className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 text-lg px-8 py-4 transform transition-transform hover:scale-105"
+                onClick={() => {
+                  const costCalculatorSection = document.querySelector('#cost-calculator-section');
+                  if (costCalculatorSection) {
+                    costCalculatorSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
-                Bezpłatna konsultacja kwalifikacyjna
+                Policz ile obecnie tracisz
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="border-[#222222] text-[#222222] hover:bg-[#222222] hover:text-[#f9f5ee] text-lg px-8 py-4 transform transition-transform hover:scale-105"
+                onClick={() => {
+                  const servicePackagesSection = document.querySelector('#service-packages-section');
+                  if (servicePackagesSection) {
+                    servicePackagesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
-                Zobacz case study
+                Poznaj nasze usługi
               </Button>
             </motion.div>
           </motion.div>
@@ -124,32 +136,79 @@ export function Hero() {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#222222]/20 to-transparent rounded-2xl transform rotate-3"></div>
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-500">Przed VibeApps</div>
-                    <div className="text-sm text-gray-500">Po VibeApps</div>
+              <div className="relative bg-white rounded-2xl shadow-2xl p-6 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                {/* Header */}
+                <div className="grid grid-cols-3 gap-2 mb-4 pb-3 border-b-2 border-gray-100">
+                  <div className="font-semibold text-sm text-[#222222] text-left">
+                    Kluczowe wskaźniki
                   </div>
-                  <div className="space-y-4">
-                    {[
-                      { label: "Czas tworzenia oferty", before: "3 dni", after: "15 min" },
-                      { label: "Telefony dziennie", before: "20+", after: "2-3" },
-                      { label: "Skuteczność ofert", before: "15%", after: "50%" }
-                    ].map((stat, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.2 }}
-                        className="flex justify-between items-center"
-                      >
-                        <span className="text-sm">{stat.label}</span>
-                        <div className="flex space-x-2">
-                          <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">{stat.before}</span>
-                          <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">{stat.after}</span>
-                        </div>
-                      </motion.div>
-                    ))}
+                  <div className="font-semibold text-xs text-[#222222] text-center">
+                    Bez dedykowanego systemu
+                  </div>
+                  <div className="font-semibold text-xs text-[#222222] text-center">
+                    Z dopasowanym systemem
+                  </div>
+                </div>
+
+                {/* Comparison Rows */}
+                <div className="space-y-3">
+                  {[
+                    { label: "Czas przygotowania oferty", before: "3 dni", after: "15 min" },
+                    { label: "Zapytania o status projektów", before: "20+ dziennie", after: "2-3 dziennie" },
+                    { label: "Współczynnik akceptacji ofert", before: "15%", after: "50%" },
+                    { label: "Czas reakcji na zapytanie klienta", before: "4-6 godzin", after: "30 min" },
+                    { label: "Błędy w dokumentacji", before: "8-12%", after: "< 2%" },
+                    { label: "Czas wdrożenia nowego pracownika", before: "2 tygodnie", after: "3 dni" },
+                    { label: "Oszczędność czasu zespołu", before: "-", after: "35%" }
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.2 }}
+                      className="grid grid-cols-3 gap-2 items-center"
+                    >
+                      <div className="text-xs font-medium text-[#222222]">{stat.label}</div>
+                      <div className="flex justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          className="bg-red-50 text-red-700 border border-red-200 px-2 py-1 rounded text-xs font-semibold text-center min-w-[60px]"
+                        >
+                          {stat.before}
+                        </motion.div>
+                      </div>
+                      <div className="flex justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          className="bg-green-50 text-green-700 border border-green-200 px-2 py-1 rounded text-xs font-semibold text-center min-w-[60px]"
+                        >
+                          {stat.after}
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Case Study Note */}
+                <div className="mt-4 pt-3 border-t border-gray-100">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+                    <div className="text-xs text-gray-600">
+                      <strong>Źródło danych:</strong> Rzeczywisty projekt dla firmy z branży finansowej.
+                    </div>
+                    <button
+                      onClick={() => {
+                        const caseStudySection = document.querySelector('#case-study-section');
+                        if (caseStudySection) {
+                          caseStudySection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="bg-[#222222] text-[#f9f5ee] hover:bg-[#333333] transition-all duration-300 hover:scale-105 text-xs px-12 py-2 rounded font-medium"
+                    >
+                      <div className="text-center">
+                        <div>Sprawdź</div>
+                        <div className="whitespace-nowrap">case study</div>
+                      </div>
+                    </button>
                   </div>
                 </div>
               </div>
