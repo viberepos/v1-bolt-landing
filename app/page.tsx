@@ -4,6 +4,7 @@ import { CostCalculator } from "@/components/cost-calculator"
 import { WhyChooseUs } from "@/components/why-choose-us"
 import { CaseStudy } from "@/components/case-study"
 import { AppManagementSection } from "@/components/app-management-section"
+import { DeviceAvailabilitySection } from "@/components/device-availability-section"
 import { ServicePackages } from "@/components/service-packages"
 import { WhatSetsUsApart } from "@/components/what-sets-us-apart"
 import { TechStack } from "@/components/tech-stack"
@@ -22,6 +23,7 @@ export default function Home() {
       <WhyChooseUs />
       <CaseStudy />
       <AppManagementSection />
+      <DeviceAvailabilitySection />
       <ServicePackages />
       <WhatSetsUsApart />
       <TechStack />

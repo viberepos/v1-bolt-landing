@@ -281,7 +281,7 @@ export function CostCalculator() {
                       >
                         <div className="text-center">
                           <div className="text-lg">Wyeliminuj te straty!</div>
-                          <div>Umów się teraz na bezpłatną konsultację</div>
+                          <div>Kliknij i umów się teraz na bezpłatną konsultację</div>
                         </div>
                       </motion.button>
                     </div>
