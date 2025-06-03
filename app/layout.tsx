@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vibeapps.pl'),
   title: 'VibeApps - Transformacja Biznesu przez Dedykowane Systemy IT',
   description: 'Zwiększ wydajność firmy o 300%. Dedykowane systemy IT, automatyzacja procesów, oszczędność czasu i pieniędzy. Bezpłatna konsultacja.',
   keywords: 'automatyzacja procesów, systemy IT, CRM, aplikacje biznesowe, optymalizacja',
@@ -47,8 +48,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/logo/4 Logo VibeApps kwadrat z tłem.png" sizes="any" />
-        <link rel="apple-touch-icon" href="/images/logo/4 Logo VibeApps kwadrat z tłem.png" />
+        <link rel="icon" href="/images/logo/logo-square.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/images/logo/logo-square.png" />
         <script async src="https://tally.so/widgets/embed.js"></script>
       </head>
       <body>{children}</body>

@@ -120,11 +120,11 @@ export function Footer() {
                 <Mail className="h-5 w-5 text-[#222222]" />
                 <span className="text-[#222222]/70">biuro@vibeapps.pl</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 hidden">
                 <Phone className="h-5 w-5 text-[#222222]" />
                 <span className="text-[#222222]/70">+48 530 002 009</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 hidden">
                 <Phone className="h-5 w-5 text-[#222222]" />
                 <span className="text-[#222222]/70">+48 788 758 361</span>
               </div>
@@ -192,7 +192,7 @@ export function Footer() {
             className="text-[#222222]/70"
             whileHover={{ scale: 1.02 }}
           >
-            © 2024 VibeApps. Wszystkie prawa zastrzeżone.
+            © 2024-2025 VibeApps. Wszystkie prawa zastrzeżone.
           </motion.p>
         </motion.div>
       </div>
