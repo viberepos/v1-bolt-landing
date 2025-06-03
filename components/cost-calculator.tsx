@@ -273,9 +273,9 @@ export function CostCalculator() {
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         className="w-full bg-green-100 text-green-800 hover:bg-green-200 transition-all duration-300 px-6 py-3 rounded-lg font-semibold text-sm justify-center will-change-transform border-2 border-green-800"
-                        data-tally-open="w8yEWk"
+                        data-tally-open="wMqZ70"
                         data-tally-layout="modal"
-                        data-tally-width="900"
+                        data-tally-width="1000"
                         data-tally-emoji-text="👋"
                         data-tally-emoji-animation="wave"
                       >
@@ -297,9 +297,9 @@ export function CostCalculator() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       className="w-full bg-green-100 text-green-800 hover:bg-green-200 transition-all duration-300 px-6 py-3 rounded-lg font-semibold text-sm justify-center will-change-transform border-2 border-green-800"
-                      data-tally-open="w8yEWk"
+                      data-tally-open="wMqZ70"
                       data-tally-layout="modal"
-                      data-tally-width="900"
+                      data-tally-width="1000"
                       data-tally-emoji-text="👋"
                       data-tally-emoji-animation="wave"
                     >

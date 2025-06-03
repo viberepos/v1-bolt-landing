@@ -132,9 +132,10 @@ export function AppManagementSection() {
             <Button 
               size="lg" 
               className="bg-[#f9f5ee] text-[#222222] hover:bg-[#f9f5ee]/90 text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              data-tally-open="w8yEWk"
+              data-tally-open="mO9eXA"
               data-tally-layout="modal"
-              data-tally-width="900"
+              data-tally-width="1000"
+              data-tally-overlay="1"
               data-tally-emoji-text="👋"
               data-tally-emoji-animation="wave"
             >

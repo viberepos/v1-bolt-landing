@@ -224,9 +224,9 @@ export function ServicePackages() {
                           ? "bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 hover:scale-105"
                           : "bg-[#f9f5ee] text-[#222222] border border-[#222222] hover:bg-[#222222] hover:text-[#f9f5ee] hover:scale-105"
                       }`}
-                      data-tally-open="w8yEWk"
+                      data-tally-open="wMqZ70"
                       data-tally-layout="modal"
-                      data-tally-width="900"
+                      data-tally-width="1000"
                       data-tally-emoji-text="👋"
                       data-tally-emoji-animation="wave"
                     >

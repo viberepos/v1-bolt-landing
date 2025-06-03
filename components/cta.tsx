@@ -103,14 +103,14 @@ export function CTA() {
             <motion.div variants={buttonVariants}>
               <Button 
                 size="lg" 
-                className="bg-[#f9f5ee] text-[#222222] hover:bg-[#f9f5ee]/90 text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                data-tally-open="w8yEWk"
+                className="w-full sm:w-auto bg-[#f9f5ee] text-[#222222] hover:bg-[#f9f5ee]/90 text-sm sm:text-lg px-4 sm:px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                data-tally-open="wMqZ70"
                 data-tally-layout="modal"
-                data-tally-width="900"
+                data-tally-width="1000"
                 data-tally-emoji-text="👋"
                 data-tally-emoji-animation="wave"
               >
-                <Calendar className="mr-2 h-5 w-5" />
+                <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
                 Umów bezpłatną konsultację
               </Button>
             </motion.div>
@@ -118,15 +118,17 @@ export function CTA() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-[#f9f5ee] bg-transparent text-[#f9f5ee] hover:bg-[#f9f5ee] hover:text-[#222222] text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                data-tally-open="w8yEWk"
+                className="w-full sm:w-auto border-[#f9f5ee] bg-transparent text-[#f9f5ee] hover:bg-[#f9f5ee] hover:text-[#222222] text-sm sm:text-lg px-4 sm:px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-xl whitespace-normal text-center leading-tight"
+                data-tally-open="mO9eXA"
                 data-tally-layout="modal"
-                data-tally-width="900"
+                data-tally-width="1000"
+                data-tally-overlay="1"
                 data-tally-emoji-text="👋"
                 data-tally-emoji-animation="wave"
               >
-                Umów się na demo aplikacji dla branży finansowej
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <span className="hidden sm:inline">Umów się na demo aplikacji dla branży finansowej</span>
+                <span className="sm:hidden">Demo aplikacji finansowej</span>
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
               </Button>
             </motion.div>
           </motion.div>
