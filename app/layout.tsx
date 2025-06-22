@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ScrollToTop } from '@/components/shared'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -52,7 +53,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/logo/logo-square.png" />
         <script async src="https://tally.so/widgets/embed.js"></script>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ScrollToTop />
+      </body>
     </html>
   )
 }

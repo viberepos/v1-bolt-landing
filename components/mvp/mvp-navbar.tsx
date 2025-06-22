@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -8,6 +8,27 @@ import { Menu, X } from "lucide-react"
 
 export function MVPNavbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past 100px
+        setIsVisible(false)
+      } else {
+        // Scrolling up
+        setIsVisible(true)
+      }
+      
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', controlNavbar)
+    return () => window.removeEventListener('scroll', controlNavbar)
+  }, [lastScrollY])
 
   const scrollToSection = (sectionId: string) => {
     const section = document.querySelector(sectionId);
@@ -18,7 +39,9 @@ export function MVPNavbar() {
   }
 
   return (
-    <nav className="bg-[#f9f5ee] border-b border-[#222222]/10 sticky top-0 z-50">
+    <nav className={`bg-[#f9f5ee] border-b border-[#222222]/10 sticky top-0 z-50 transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -26,10 +49,10 @@ export function MVPNavbar() {
               <Image 
                 src="/images/logo/2 Logo VibeApps poziom bez tła.png" 
                 alt="VibeApps" 
-                width={150} 
-                height={40}
+                width={180} 
+                height={48}
                 priority
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
           </div>

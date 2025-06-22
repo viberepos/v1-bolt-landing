@@ -1,5 +1,6 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -43,8 +44,34 @@ export function MVPProcess() {
     }
   }
 
+  const ctaVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        delay: 0.3
+      }
+    }
+  }
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+        delay: 0.4
+      }
+    }
+  }
+
   return (
-    <section id="mvp-process-section" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+    <section id="mvp-process-section" className="w-full pt-12 md:pt-24 lg:pt-32 pb-8 md:pb-16 lg:pb-20 bg-white">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -125,6 +152,39 @@ export function MVPProcess() {
             <p className="text-center text-[#222222]/70 text-sm group-hover:text-[#222222]/80 transition-colors duration-300">
               Na podstawie zebranych danych decydujemy o zmianie kierunku lub dalszym rozwoju aplikacji
             </p>
+          </motion.div>
+        </motion.div>
+        
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="mt-20 flex flex-col items-center justify-center space-y-3 text-center"
+        >
+          <motion.h3 
+            variants={ctaVariants}
+            className="text-2xl font-bold text-[#222222]"
+          >
+            Umów się na bezpłatną konsultację.
+          </motion.h3>
+          <motion.p 
+            variants={ctaVariants}
+            className="max-w-[600px] text-[#222222]/70 text-lg"
+          >
+            Omówimy Twoje pomysły i potrzeby oraz zakres funkcjonalności Twojej aplikacji.
+          </motion.p>
+          <motion.div variants={buttonVariants}>
+            <Button 
+              size="lg"
+              className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 text-lg px-12 py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              data-tally-open="3jXqpR"
+              data-tally-layout="modal"
+              data-tally-width="850"
+              data-tally-emoji-text="👋"
+              data-tally-emoji-animation="wave"
+            >
+              Stwórzmy Twoją aplikację
+            </Button>
           </motion.div>
         </motion.div>
       </div>
