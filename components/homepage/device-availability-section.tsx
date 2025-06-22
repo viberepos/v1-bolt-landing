@@ -136,7 +136,7 @@ export function DeviceAvailabilitySection() {
   }
 
   return (
-    <section className="py-20 bg-[#f9f5ee]">
+    <section className="pt-20 pb-12 bg-[#f9f5ee]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

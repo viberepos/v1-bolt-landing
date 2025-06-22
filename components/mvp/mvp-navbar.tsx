@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
-export function Navbar() {
+export function MVPNavbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
@@ -24,7 +24,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/images/logo/2-Logo-VibeApps-poziom-bez-tła.png" 
+                src="/images/logo/2 Logo VibeApps poziom bez tła.png" 
                 alt="VibeApps" 
                 width={150} 
                 height={40}
@@ -37,34 +37,34 @@ export function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <button 
-                onClick={() => scrollToSection('#service-packages-section')}
+                onClick={() => scrollToSection('#mvp-comparison-section')}
                 className="text-[#222222] hover:text-[#222222]/70 px-3 py-2 text-sm font-medium bg-transparent border-none cursor-pointer"
               >
-                Usługi
+                Jak działamy
               </button>
               <button
-                onClick={() => scrollToSection('#cost-calculator-section')}
+                onClick={() => scrollToSection('#mvp-process-section')}
                 className="text-[#222222] hover:text-[#222222]/70 px-3 py-2 text-sm font-medium bg-transparent border-none cursor-pointer"
               >
-                Policz koszty
+                Proces współpracy
               </button>
               <button
                 onClick={() => scrollToSection('#case-study-section')}
                 className="text-[#222222] hover:text-[#222222]/70 px-3 py-2 text-sm font-medium bg-transparent border-none cursor-pointer"
               >
-                Aplikacja dla branży finansowej
+                Case study
               </button>
               <button 
                 onClick={() => scrollToSection('#what-sets-us-apart-section')}
                 className="text-[#222222] hover:text-[#222222]/70 px-3 py-2 text-sm font-medium bg-transparent border-none cursor-pointer"
               >
-                O nas
+                Co nas wyróżnia
               </button>
               <Button 
                 className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90"
-                data-tally-open="wMqZ70"
+                data-tally-open="3jXqpR"
                 data-tally-layout="modal"
-                data-tally-width="1000"
+                data-tally-width="850"
                 data-tally-emoji-text="👋"
                 data-tally-emoji-animation="wave"
               >
@@ -85,34 +85,34 @@ export function Navbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#f9f5ee] border-t border-[#222222]/10">
             <button
-              onClick={() => scrollToSection('#service-packages-section')}
+              onClick={() => scrollToSection('#mvp-comparison-section')}
               className="text-[#222222] hover:text-[#222222]/70 block px-3 py-2 text-base font-medium w-full text-left bg-transparent border-none cursor-pointer"
             >
-              Usługi
+              Jak działamy
             </button>
             <button
-              onClick={() => scrollToSection('#cost-calculator-section')}
+              onClick={() => scrollToSection('#mvp-process-section')}
               className="text-[#222222] hover:text-[#222222]/70 block px-3 py-2 text-base font-medium w-full text-left bg-transparent border-none cursor-pointer"
             >
-              Policz koszty
+              Proces współpracy
             </button>
             <button
               onClick={() => scrollToSection('#case-study-section')}
               className="text-[#222222] hover:text-[#222222]/70 block px-3 py-2 text-base font-medium w-full text-left bg-transparent border-none cursor-pointer"
             >
-              Aplikacja dla branży finansowej
+              Case study
             </button>
             <button
               onClick={() => scrollToSection('#what-sets-us-apart-section')}
               className="text-[#222222] hover:text-[#222222]/70 block px-3 py-2 text-base font-medium w-full text-left bg-transparent border-none cursor-pointer"
             >
-              O nas
+              Co nas wyróżnia
             </button>
             <Button 
               className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 w-full mt-2"
-              data-tally-open="wMqZ70"
+              data-tally-open="3jXqpR"
               data-tally-layout="modal"
-              data-tally-width="1000"
+              data-tally-width="850"
               data-tally-emoji-text="👋"
               data-tally-emoji-animation="wave"
             >
@@ -123,4 +123,4 @@ export function Navbar() {
       )}
     </nav>
   )
-}
+} 

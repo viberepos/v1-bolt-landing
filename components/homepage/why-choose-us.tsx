@@ -65,7 +65,7 @@ export function WhyChooseUs() {
       icon: Zap,
       title: "SZYBCIEJ",
       comparison: "Tradycyjne firmy: 6-12 miesięcy",
-      solution: "VibeApps: 3-8 tygodni",
+      solution: "VibeApps: 3-12 tygodni",
       description:
         "Nie musisz czekać miesiącami na efekty. Dzięki Smart Development zobaczysz pierwsze rezultaty już po kilku tygodniach.",
     },
@@ -73,7 +73,7 @@ export function WhyChooseUs() {
       icon: DollarSign,
       title: "TANIEJ",
       comparison: "Tradycyjny development: 150 000+ PLN",
-      solution: "VibeApps: Oszczędzasz nawet do 70%",
+      solution: "VibeApps: Oszczędzasz nawet do 80%",
       description: "Dlaczego przepłacać za kod, kiedy powinieneś płacić za rezultaty? Eliminujemy zbędne koszty.",
     },
     {

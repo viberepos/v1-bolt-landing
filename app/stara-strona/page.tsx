@@ -1,6 +1,5 @@
-import { Footer } from "@/components/shared"
+import { Navbar, Footer } from "@/components/shared"
 import { 
-  MVPNavbar,
   MVPHero, 
   MVPProblemSection, 
   MVPComparison, 
@@ -9,41 +8,48 @@ import {
   MVPDeliverables, 
   MVPPricing, 
   MVPFAQ, 
-  MVPCTA,
-  MVPMainCTA,
-  MVPTechStack,
-  CaseStudy2
+  MVPCTA 
 } from "@/components/mvp"
 import { 
   Hero, 
   ProblemSection, 
   CostCalculator, 
   WhyChooseUs, 
+  CaseStudy, 
   AppManagementSection, 
   DeviceAvailabilitySection, 
   ServicePackages, 
   WhatSetsUsApart, 
-  Process 
+  TechStack, 
+  Process, 
+  CTA 
 } from "@/components/homepage"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#f9f5ee]">
-      <MVPNavbar />
+      <Navbar />
       <MVPHero />
       <MVPProblemSection />
       <MVPComparison />
       <MVPProcess />
-      <CaseStudy2 />
+      <MVPExamples />
+      <MVPDeliverables />
+      <MVPPricing />
+      <MVPFAQ />
+      <MVPCTA />
+      <Hero />
+      <ProblemSection />
+      <CostCalculator />
+      <WhyChooseUs />
+      <CaseStudy />
       <AppManagementSection />
       <DeviceAvailabilitySection />
-      <MVPDeliverables />
-      <MVPCTA />
+      <ServicePackages />
       <WhatSetsUsApart />
-      <WhyChooseUs />
-      <MVPFAQ />
-      <MVPTechStack />
-      <MVPMainCTA />
+      <TechStack />
+      <Process />
+      <CTA />
       <Footer />
     </div>
   )

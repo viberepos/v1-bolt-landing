@@ -112,7 +112,7 @@ export function Footer() {
               variants={itemVariants}
               className="text-[#222222]/70 max-w-md"
             >
-              Transformujemy pomysły w działające rozwiązania. Szybciej, taniej i skalowalnie niż tradycyjne firmy
+              Transformujemy pomysły w działające rozwiązania. Szybciej, taniej i lepiej niż tradycyjne firmy
               software'owe.
             </motion.p>
             <div className="space-y-3 mt-8">
@@ -148,18 +148,18 @@ export function Footer() {
             >
               <motion.li variants={linkVariants}>
                 <button 
-                  onClick={() => scrollToSection('#service-packages-section')}
+                  onClick={() => scrollToSection('#mvp-comparison-section')}
                   className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  Usługi
+                  Jak działamy
                 </button>
               </motion.li>
               <motion.li variants={linkVariants}>
                 <button 
-                  onClick={() => scrollToSection('#cost-calculator-section')}
+                  onClick={() => scrollToSection('#mvp-process-section')}
                   className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  Policz koszty
+                  Proces współpracy
                 </button>
               </motion.li>
               <motion.li variants={linkVariants}>
@@ -167,7 +167,7 @@ export function Footer() {
                   onClick={() => scrollToSection('#case-study-section')}
                   className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  Aplikacja dla branży finansowej
+                  Przykład współpracy
                 </button>
               </motion.li>
               <motion.li variants={linkVariants}>
@@ -175,7 +175,7 @@ export function Footer() {
                   onClick={() => scrollToSection('#what-sets-us-apart-section')}
                   className="text-[#222222]/70 hover:text-[#222222] transition-colors duration-200 inline-block hover:translate-x-1 transition-transform bg-transparent border-none cursor-pointer text-left"
                 >
-                  O nas
+                  Co nas wyróżnia
                 </button>
               </motion.li>
             </motion.ul>
@@ -198,4 +198,4 @@ export function Footer() {
       </div>
     </footer>
   )
-}
+} 

@@ -97,7 +97,7 @@ export function WhatSetsUsApart() {
       icon: BarChart,
       title: "Mierzalne rezultaty zamiast mglistych obietnic",
       description:
-        "Ustalamy konkretne, mierzalne wskaźniki sukcesu projektu, które pozwalają jasno ocenić zwrot z inwestycji.",
+        "Ustalamy konkretne, mierzalne wskaźniki sukcesu projektu, które pozwalają jasno ocenić sens dalszych inwestycji.",
     },
   ]
 
@@ -122,7 +122,7 @@ export function WhatSetsUsApart() {
             className="text-xl text-[#222222]/70 max-w-3xl mx-auto"
           >
             Nie jesteśmy kolejną firmą software'ową.<br />
-            Jesteśmy Twoim partnerem w cyfrowej transformacji.
+            Jesteśmy Twoim partnerem w realizacji i rozwoju Twoich pomysłów.
           </motion.p>
         </motion.div>
 
