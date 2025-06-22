@@ -24,7 +24,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/images/logo/2 Logo VibeApps poziom bez tła.png" 
+                src="/images/logo/2-Logo-VibeApps-poziom-bez-tła.png" 
                 alt="VibeApps" 
                 width={150} 
                 height={40}

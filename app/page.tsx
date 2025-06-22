@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero"
+import { BusinessChoiceSection } from "@/components/business-choice-section"
 import { ProblemSection } from "@/components/problem-section"
 import { CostCalculator } from "@/components/cost-calculator"
 import { WhyChooseUs } from "@/components/why-choose-us"
@@ -18,6 +19,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#f9f5ee]">
       <Navbar />
       <Hero />
+      <BusinessChoiceSection />
       <ProblemSection />
       <CostCalculator />
       <WhyChooseUs />
