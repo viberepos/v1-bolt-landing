@@ -61,7 +61,7 @@ export function Hero() {
               variants={itemVariants}
               className="text-4xl font-bold tracking-tight text-[#222222] sm:text-5xl lg:text-6xl"
             >
-              Ile Twoja firma traci czasu i pieniądzy na{" "}
+              Policz ile Twoja firma traci czasu i pieniądzy na{" "}
               <span className="text-[#222222] underline decoration-4 decoration-[#222222]/30">
                 przestarzałych procesach
               </span>{" "}
