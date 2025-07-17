@@ -1,28 +1,40 @@
 import type { Metadata } from 'next'
-import { Navbar, Footer } from "@/components/shared"
+import { Footer } from "@/components/shared"
+import { 
+  MVPNavbar,
+  MVPHero, 
+  MVPProblemSection, 
+  MVPComparison, 
+  MVPProcess, 
+  MVPExamples, 
+  MVPDeliverables, 
+  MVPPricing, 
+  MVPFAQ, 
+  MVPCTA,
+  MVPMainCTA,
+  MVPTechStack,
+  CaseStudy2
+} from "@/components/mvp"
 import { 
   Hero, 
   ProblemSection, 
   CostCalculator, 
   WhyChooseUs, 
-  CaseStudy, 
   AppManagementSection, 
   DeviceAvailabilitySection, 
   ServicePackages, 
   WhatSetsUsApart, 
-  TechStack, 
-  Process, 
-  CTA 
+  Process 
 } from "@/components/homepage"
 
 export const metadata: Metadata = {
-  title: 'VibeApps dla Biznesu - Transformacja Procesów Biznesowych',
-  description: 'Zwiększ wydajność firmy o 300%. dedykowane systemy, oszczędność czasu i pieniędzy. Gotowe rozwiązanie w 3-8 tygodni.',
-  keywords: 'optymalizacja procesów biznesowych, aplikacje i systemy dla firm, CRM dedykowane, aplikacje biznesowe, optymalizacja procesów',
+  title: 'VibeApps - Szybkie MVP | Zbudujemy Twoją aplikację szybciej i taniej',
+  description: 'Szybszy development = szybsza walidacja. Sprawdź czy Twój pomysł na aplikację będzie pożądany przez rynek przed dużymi inwestycjami. MVP w 3-12 tygodni.',
+  keywords: 'MVP, minimum viable product, szybkie MVP, walidacja pomysłu, prototyp aplikacji, startup MVP',
   
   openGraph: {
-    title: 'VibeApps dla Biznesu - Transformacja Procesów',
-    description: 'Zwiększ wydajność firmy o 300%. dedykowane systemy, oszczędność 2-3 godzin dziennie.',
+    title: 'VibeApps - Szybkie MVP | Zbudujemy Twoją aplikację',
+    description: 'Szybszy development = szybsza walidacja. MVP w 3-12 tygodni. Realne opinie od użytkowników, szybsze sprawdzenie rynku.',
     url: 'https://vibeapps.pl',
     siteName: 'VibeApps',
     images: [
@@ -30,7 +42,7 @@ export const metadata: Metadata = {
         url: 'https://vibeapps.pl/images/logo/2%20Logo%20VibeApps%20poziom%20bez%20t%C5%82a.png',
         width: 1200,
         height: 630,
-        alt: 'VibeApps - Automatyzacja Procesów Biznesowych',
+        alt: 'VibeApps - Szybkie MVP i Walidacja Pomysłów',
         type: 'image/png',
       },
     ],
@@ -40,8 +52,8 @@ export const metadata: Metadata = {
   
   twitter: {
     card: 'summary_large_image',
-    title: 'VibeApps dla Biznesu - Transformacja Procesów',
-    description: 'Zwiększ wydajność firmy o 300%. Gotowe rozwiązanie w 3-12 tygodni.',
+    title: 'VibeApps - Szybkie MVP | Zbudujemy Twoją aplikację',
+    description: 'Szybszy development = szybsza walidacja. MVP w 3-12 tygodni.',
     images: ['https://vibeapps.pl/images/logo/2%20Logo%20VibeApps%20poziom%20bez%20t%C5%82a.png'],
   },
   
@@ -53,19 +65,21 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#f9f5ee]">
-      <Navbar />
-      <Hero />
-      <ProblemSection />
-      <CostCalculator />
-      <WhyChooseUs />
-      <CaseStudy />
+      <MVPNavbar />
+      <MVPHero />
+      <MVPProblemSection />
+      <MVPComparison />
+      <MVPProcess />
+      <CaseStudy2 />
       <AppManagementSection />
       <DeviceAvailabilitySection />
-      <ServicePackages />
+      <MVPDeliverables />
+      <MVPCTA />
       <WhatSetsUsApart />
-      <TechStack />
-      <Process />
-      <CTA />
+      <WhyChooseUs />
+      <MVPFAQ />
+      <MVPTechStack />
+      <MVPMainCTA />
       <Footer />
     </div>
   )

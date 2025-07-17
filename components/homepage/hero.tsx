@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Calendar } from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -12,36 +12,35 @@ export function Hero() {
   })
 
   const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.3
-      }
-    }
-  }
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        duration: 0.6,
+        staggerChildren: 0.2
       }
     }
   }
 
-  const buttonVariants = {
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5 }
+    }
+  }
+
+  const statsVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       }
     }
   }
@@ -58,7 +57,7 @@ export function Hero() {
             className="lg:col-span-7"
           >
             <motion.h1 
-              variants={textVariants}
+              variants={itemVariants}
               className="text-4xl font-bold tracking-tight text-[#222222] sm:text-5xl lg:text-6xl"
             >
               Policz ile Twoja firma traci czasu i pieniądzy na{" "}
@@ -68,77 +67,151 @@ export function Hero() {
               biznesowych?
             </motion.h1>
             <motion.p 
-              variants={textVariants}
+              variants={itemVariants}
               className="mt-6 text-xl text-[#222222]/70 max-w-3xl"
             >
               Wyobraź sobie, że Twój zespół przestaje narzekać na powtarzalną pracę, kończą się dziesiątki telefonów
               dziennie z pytaniami o etap prac, a Twoje oferty powstają w 15 minut zamiast 3 dni.
             </motion.p>
 
-            {/* Stats Grid */}
             <motion.div 
               variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16"
+              className="mt-8 space-y-4"
             >
-              <motion.div 
-                variants={textVariants}
-                className="text-center"
-              >
-                <div className="tech-hero-title mb-4">300%</div>
-                <div className="tech-caption">Wzrost wydajności</div>
-              </motion.div>
-              <motion.div 
-                variants={textVariants}
-                className="text-center"
-              >
-                <div className="tech-hero-title mb-4">3-8</div>
-                <div className="tech-caption">Tygodni do wdrożenia</div>
-              </motion.div>
-              <motion.div 
-                variants={textVariants}
-                className="text-center"
-              >
-                <div className="tech-hero-title mb-4">2-3h</div>
-                <div className="tech-caption">Oszczędności dziennie</div>
-              </motion.div>
+              {[
+                "35% wzrost skuteczności ofert",
+                "2-3 godziny dziennie oszczędności",
+                "Gotowe rozwiązanie w 3-8 tygodni"
+              ].map((text, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="flex items-center space-x-3"
+                >
+                  <CheckCircle className="h-6 w-6 text-green-600" />
+                  <span className="text-[#222222]">{text}</span>
+                </motion.div>
+              ))}
             </motion.div>
 
-            {/* CTA Buttons */}
             <motion.div 
               variants={containerVariants}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+              className="mt-10 flex flex-col sm:flex-row gap-4"
             >
-              <motion.div variants={buttonVariants}>
-                <Button 
-                  size="lg" 
-                  className="tech-button text-lg px-8 py-4 hover:scale-105 transition-transform duration-300"
-                  data-tally-open="wMqZ70"
-                  data-tally-layout="modal"
-                  data-tally-width="1000"
-                  data-tally-emoji-text="👋"
-                  data-tally-emoji-animation="wave"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Bezpłatna konsultacja
-                </Button>
-              </motion.div>
-              <motion.div variants={buttonVariants}>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="tech-button-outline text-lg px-8 py-4 hover:scale-105 transition-transform duration-300"
-                  data-tally-open="mO9eXA"
-                  data-tally-layout="modal"
-                  data-tally-width="1000"
-                  data-tally-overlay="1"
-                  data-tally-emoji-text="👋"
-                  data-tally-emoji-animation="wave"
-                >
-                  Demo aplikacji
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </motion.div>
+              <Button 
+                size="lg" 
+                className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 text-lg px-8 py-4 transform transition-transform hover:scale-105"
+                onClick={() => {
+                  const costCalculatorSection = document.querySelector('#cost-calculator-section');
+                  if (costCalculatorSection) {
+                    costCalculatorSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Policz ile obecnie tracisz
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-[#222222] text-[#222222] hover:bg-[#222222] hover:text-[#f9f5ee] text-lg px-8 py-4 transform transition-transform hover:scale-105"
+                onClick={() => {
+                  const servicePackagesSection = document.querySelector('#service-packages-section');
+                  if (servicePackagesSection) {
+                    servicePackagesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Poznaj nasze usługi
+              </Button>
             </motion.div>
+          </motion.div>
+
+          <motion.div 
+            variants={statsVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="mt-12 lg:mt-0 lg:col-span-5"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#222222]/20 to-transparent rounded-2xl transform rotate-3"></div>
+              <div className="relative bg-white rounded-2xl shadow-2xl p-6 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                {/* Header */}
+                <div className="grid grid-cols-3 gap-2 mb-4 pb-3 border-b-2 border-gray-100">
+                  <div className="font-semibold text-sm text-[#222222] text-left">
+                    Kluczowe wskaźniki
+                  </div>
+                  <div className="font-semibold text-xs text-[#222222] text-center">
+                    Bez dedykowanego systemu
+                  </div>
+                  <div className="font-semibold text-xs text-[#222222] text-center">
+                    Z dopasowanym systemem
+                  </div>
+                </div>
+
+                {/* Comparison Rows */}
+                <div className="space-y-3">
+                  {[
+                    { label: "Czas przygotowania oferty", before: "3 dni", after: "15 min" },
+                    { label: "Zapytania o status projektów", before: "20+ dziennie", after: "2-3 dziennie" },
+                    { label: "Współczynnik akceptacji ofert", before: "15%", after: "50%" },
+                    { label: "Czas reakcji na zapytanie klienta", before: "4-6 godzin", after: "30 min" },
+                    { label: "Błędy w dokumentacji", before: "8-12%", after: "< 2%" },
+                    { label: "Czas wdrożenia nowego pracownika", before: "2 tygodnie", after: "3 dni" },
+                    { label: "Oszczędność czasu zespołu", before: "-", after: "35%" }
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.2 }}
+                      className="grid grid-cols-3 gap-2 items-center"
+                    >
+                      <div className="text-xs font-medium text-[#222222]">{stat.label}</div>
+                      <div className="flex justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          className="bg-red-50 text-red-700 border border-red-200 px-2 py-1 rounded text-xs font-semibold text-center min-w-[60px]"
+                        >
+                          {stat.before}
+                        </motion.div>
+                      </div>
+                      <div className="flex justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          className="bg-green-50 text-green-700 border border-green-200 px-2 py-1 rounded text-xs font-semibold text-center min-w-[60px]"
+                        >
+                          {stat.after}
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Case Study Note */}
+                <div className="mt-4 pt-3 border-t border-gray-100">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+                    <div className="text-xs text-gray-600">
+                      <strong>Źródło danych:</strong> Rzeczywisty projekt dla firmy z branży finansowej.
+                    </div>
+                    <button
+                      onClick={() => {
+                        const caseStudySection = document.querySelector('#case-study-section');
+                        if (caseStudySection) {
+                          caseStudySection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="bg-[#222222] text-[#f9f5ee] hover:bg-[#333333] transition-all duration-300 hover:scale-105 text-xs px-12 py-2 rounded font-medium"
+                    >
+                      <div className="text-center">
+                        <div>Sprawdź</div>
+                        <div className="whitespace-nowrap">case study</div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

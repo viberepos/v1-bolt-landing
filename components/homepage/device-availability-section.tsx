@@ -26,6 +26,7 @@ export function DeviceAvailabilitySection() {
     "/images/case-study/11.png"
   ]
 
+  // Funkcje obsługi przeciągania
   const handlePhoneDrag = (event: any, info: any) => {
     if (Math.abs(info.offset.x) > 50) {
       if (info.offset.x > 0) {
@@ -40,6 +41,7 @@ export function DeviceAvailabilitySection() {
     }
   }
 
+  // Automatyczne przełączanie co 5 sekund
   useEffect(() => {
     if (isPaused) return
 
@@ -66,111 +68,148 @@ export function DeviceAvailabilitySection() {
     }
   }
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
     visible: {
-      opacity: 1,
       y: 0,
+      opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       }
     }
   }
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { scale: 0.8, opacity: 0 },
     visible: {
-      opacity: 1,
       scale: 1,
+      opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 120,
+        damping: 20
       }
     }
   }
 
-  const slideVariants = {
+  const buttonVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 20
+      }
+    }
+  }
+
+  // Warianty animacji kołowej dla telefonu
+  const phoneSlideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      x: direction > 0 ? '100%' : '-100%',
+      y: '100%',
+      rotate: direction > 0 ? 45 : -45,
+      scale: 0.8
     }),
     center: {
-      zIndex: 1,
       x: 0,
-      opacity: 1
+      y: 0,
+      rotate: 0,
+      scale: 1
     },
     exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      x: direction > 0 ? '-100%' : '100%',
+      y: '100%',
+      rotate: direction > 0 ? -45 : 45,
+      scale: 0.8
     })
   }
 
-  const slideTransition = {
-    x: { type: "spring", stiffness: 300, damping: 30 },
-    opacity: { duration: 0.2 }
+  const phoneSlideTransition = {
+    type: "tween",
+    ease: "easeOut", 
+    duration: 0.5
   }
 
   return (
-    <section className="tech-background tech-spacing-lg">
-      <div className="tech-container">
+    <section className="pt-20 pb-12 bg-[#f9f5ee]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={textVariants} className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-start">
+            {/* Lewa strona - treść */}
+            <motion.div variants={itemVariants} className="space-y-7">
               <motion.h2 
-                variants={textVariants}
-                className="tech-headline mb-8"
+                variants={itemVariants}
+                className="text-3xl font-bold text-[#222222] sm:text-4xl lg:text-5xl mb-7"
               >
-                DOSTĘPNA NA KAŻDYM URZĄDZENIU
+                Dostępna na każdym urządzeniu
               </motion.h2>
               
-              <motion.p 
-                variants={textVariants}
-                className="tech-body opacity-90"
-              >
-                Nasza aplikacja jest w pełni responsywna i dostosowuje się do wszystkich 
-                urządzeń - od smartfonów po desktopy.
-              </motion.p>
-
-              <motion.div 
-                variants={containerVariants}
-                className="grid grid-cols-3 gap-4 mt-8"
-              >
-                <motion.div 
-                  variants={textVariants}
-                  className="tech-card !p-4 text-center group cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Smartphone className="h-8 w-8 text-white mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="tech-caption !text-xs">Mobile</div>
-                </motion.div>
-                <motion.div 
-                  variants={textVariants}
-                  className="tech-card !p-4 text-center group cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Tablet className="h-8 w-8 text-white mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="tech-caption !text-xs">Tablet</div>
-                </motion.div>
-                <motion.div 
-                  variants={textVariants}
-                  className="tech-card !p-4 text-center group cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Monitor className="h-8 w-8 text-white mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="tech-caption !text-xs">Desktop</div>
-                </motion.div>
+              <motion.div variants={itemVariants} className="space-y-5">
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#222222]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Globe className="w-5 h-5 text-[#222222]" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-[#222222] mb-1">Webowa</h4>
+                    <p className="text-[#222222]/70">Przeglądarkowa z linku</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#222222]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Monitor className="w-5 h-5 text-[#222222]" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-[#222222] mb-1">Desktopowa</h4>
+                    <p className="text-[#222222]/70">Do pobrania na komputer</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#222222]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Tablet className="w-5 h-5 text-[#222222]" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-[#222222] mb-1">Mobilna przeglądarkowa</h4>
+                    <p className="text-[#222222]/70">Dostęp z linku</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#222222]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Smartphone className="w-5 h-5 text-[#222222]" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-[#222222] mb-1">Mobilna</h4>
+                    <p className="text-[#222222]/70">Do pobrania na telefon</p>
+                  </div>
+                </div>
               </motion.div>
-
-              <motion.div variants={textVariants} className="mt-8">
+              
+              <motion.p 
+                variants={itemVariants}
+                className="text-[#222222]/60 italic mt-9 text-sm"
+              >
+                Dostosowana do pracy na każdym urządzeniu, zarówno Windows, MacOS, Android oraz iOS (iPhone).
+              </motion.p>
+              
+              <motion.div 
+                variants={buttonVariants}
+                className="mt-9"
+              >
                 <Button 
-                  className="tech-button-outline text-lg px-8 py-4 transition-transform duration-300 hover:scale-105"
+                  size="lg" 
+                  className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-xl"
                   data-tally-open="mO9eXA"
                   data-tally-layout="modal"
                   data-tally-width="1000"
@@ -178,23 +217,24 @@ export function DeviceAvailabilitySection() {
                   data-tally-emoji-text="👋"
                   data-tally-emoji-animation="wave"
                 >
-                  <Globe className="mr-2 h-5 w-5" />
-                  Zobacz demo
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Umów się na demo
                 </Button>
               </motion.div>
             </motion.div>
 
-            <motion.div variants={imageVariants} className="relative">
-              <div className="relative max-w-md mx-auto">
+            {/* Prawa strona - telefon */}
+            <motion.div variants={imageVariants} className="flex justify-center overflow-hidden -mt-8">
+              <div className="w-full max-w-md relative" style={{ minHeight: '700px' }}>
                 <AnimatePresence initial={false} custom={phoneDirection}>
                   <motion.div
                     key={`phone-${phoneSlide}`}
                     custom={phoneDirection}
-                    variants={slideVariants}
+                    variants={phoneSlideVariants}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={slideTransition}
+                    transition={phoneSlideTransition}
                     className="w-full absolute top-0 left-0 cursor-grab active:cursor-grabbing"
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
@@ -203,10 +243,13 @@ export function DeviceAvailabilitySection() {
                   >
                     <Image
                       src={phoneMockups[phoneSlide]}
-                      alt="Aplikacja VibeApps"
-                      width={400}
-                      height={600}
-                      className="w-full h-auto transition-all duration-300 pointer-events-none rounded-lg shadow-2xl"
+                      alt="Panel aplikacji finansowej"
+                      width={500}
+                      height={1200}
+                      className="w-full h-auto transition-all duration-300 pointer-events-none"
+                      style={{
+                        filter: 'drop-shadow(0 8px 15px rgba(0, 0, 0, 0.25))'
+                      }}
                     />
                   </motion.div>
                 </AnimatePresence>

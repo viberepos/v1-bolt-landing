@@ -1,6 +1,7 @@
 "use client"
 
-import { Calculator, Plus, Minus, ArrowRight } from "lucide-react"
+import { Calculator, TrendingDown, Plus, Minus, ArrowRight, ArrowLeft } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useState } from "react"
@@ -53,206 +54,265 @@ export function CostCalculator() {
     }
   }
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
     visible: {
-      opacity: 1,
       y: 0,
+      opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       }
     }
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { scale: 0.8, opacity: 0 },
     visible: {
+      scale: 1,
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       }
     }
   }
 
   const numberVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { scale: 0.5, opacity: 0 },
     visible: {
-      opacity: 1,
       scale: 1,
+      opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+        delay: 0.3
       }
     }
   }
 
   return (
-    <section className="tech-background tech-spacing-lg">
-      <div className="tech-container">
+    <section id="cost-calculator-section" className="py-20 bg-[#f9f5ee]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <motion.h2 
-            variants={textVariants}
-            className="tech-headline mb-8"
-          >
-            MARKET OVERVIEW
-          </motion.h2>
-          <motion.p 
-            variants={textVariants}
-            className="tech-subheadline max-w-3xl mx-auto opacity-90"
-          >
-            Policz ile kosztują Cię nieefektywne procesy w Twojej firmie
-          </motion.p>
-        </motion.div>
-
-        {/* Interactive Calculator */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="max-w-4xl mx-auto mb-20"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {/* Employees */}
-            <motion.div 
-              variants={cardVariants}
-              className="tech-card text-center"
-            >
-              <div className="tech-caption mb-4">Pracownicy</div>
-              <div className="tech-hero-title !text-4xl mb-4">{employees}</div>
-              <div className="flex justify-center gap-3">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateEmployees(-1)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <Minus className="h-5 w-5 text-white" />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateEmployees(1)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <Plus className="h-5 w-5 text-white" />
-                </motion.button>
-              </div>
-            </motion.div>
-
-            {/* Wasted Hours */}
-            <motion.div 
-              variants={cardVariants}
-              className="tech-card text-center"
-            >
-              <div className="tech-caption mb-4">Godziny marnowane dziennie</div>
-              <div className="tech-hero-title !text-4xl mb-4">{wastedHoursPerEmployee}h</div>
-              <div className="flex justify-center gap-3">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateWastedHours(-0.5)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <Minus className="h-5 w-5 text-white" />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateWastedHours(0.5)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <Plus className="h-5 w-5 text-white" />
-                </motion.button>
-              </div>
-            </motion.div>
-
-            {/* Hourly Rate */}
-            <motion.div 
-              variants={cardVariants}
-              className="tech-card text-center"
-            >
-              <div className="tech-caption mb-4">Stawka godzinowa</div>
-              <div className="tech-hero-title !text-4xl mb-4">{hourlyRate} PLN</div>
-              <div className="flex justify-center gap-3">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateHourlyRate(-5)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <Minus className="h-5 w-5 text-white" />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => updateHourlyRate(5)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <Plus className="h-5 w-5 text-white" />
-                </motion.button>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Results */}
-          <motion.div 
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            <motion.div 
-              variants={numberVariants}
-              className="text-center"
-            >
-              <div className="tech-hero-title !text-5xl mb-4">{formatPrice(dailyCost)} PLN</div>
-              <div className="tech-caption">Straty dziennie</div>
-            </motion.div>
-            <motion.div 
-              variants={numberVariants}
-              className="text-center"
-            >
-              <div className="tech-hero-title !text-5xl mb-4">{formatPrice(monthlyCost)} PLN</div>
-              <div className="tech-caption">Straty miesięcznie</div>
-            </motion.div>
-            <motion.div 
-              variants={numberVariants}
-              className="text-center"
-            >
-              <div className="tech-hero-title !text-5xl mb-4">{formatPrice(yearlyCost)} PLN</div>
-              <div className="tech-caption">Straty rocznie</div>
-            </motion.div>
+          <motion.div variants={itemVariants}>
+            <Calculator className="h-16 w-16 text-[#222222] mx-auto mb-6" />
           </motion.div>
+          <motion.h2 
+            variants={itemVariants}
+            className="text-3xl font-bold text-[#222222] sm:text-4xl lg:text-4xl mb-6"
+          >
+            Ile kosztują Cię nieefektywne procesy
+          </motion.h2>
         </motion.div>
 
-        {/* CTA */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center"
+          className="max-w-4xl mx-auto"
         >
-          <motion.button
-            variants={cardVariants}
-            whileHover={{ scale: 1.05 }}
-            className="tech-button text-xl px-12 py-6 transition-transform duration-300"
-            data-tally-open="wMqZ70"
-            data-tally-layout="modal"
-            data-tally-width="1000"
-            data-tally-emoji-text="👋"
-            data-tally-emoji-animation="wave"
-          >
-            <Calculator className="mr-3 h-6 w-6" />
-            Wyeliminuj te straty
-            <ArrowRight className="ml-3 h-6 w-6" />
-          </motion.button>
+          <motion.div variants={cardVariants}>
+            <Card className="bg-white shadow-2xl">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl text-[#222222]">Policz swoje obecne straty</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <motion.div 
+                    variants={containerVariants}
+                    className="space-y-6"
+                  >
+                    {/* Liczba pracowników */}
+                    <motion.div 
+                      variants={itemVariants}
+                      className="flex justify-between items-center py-4 px-4 bg-[#f9f5ee] rounded-lg"
+                    >
+                      <span className="font-medium text-[#222222]">{employees} pracowników</span>
+                      <div className="flex gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => updateEmployees(-1)}
+                          className="w-8 h-8 bg-[#222222] text-[#f9f5ee] rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors"
+                        >
+                          <Minus className="h-4 w-4" />
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => updateEmployees(1)}
+                          className="w-8 h-8 bg-[#222222] text-[#f9f5ee] rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </motion.button>
+                      </div>
+                    </motion.div>
+
+                    {/* Godziny marnowane */}
+                    <motion.div 
+                      variants={itemVariants}
+                      className="flex justify-between items-center py-4 px-4 bg-[#f9f5ee] rounded-lg"
+                    >
+                      <span className="font-medium text-[#222222]">{wastedHoursPerEmployee} marnowanych dziennie godzin</span>
+                      <div className="flex gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => updateWastedHours(-0.5)}
+                          className="w-8 h-8 bg-[#222222] text-[#f9f5ee] rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors"
+                        >
+                          <Minus className="h-4 w-4" />
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => updateWastedHours(0.5)}
+                          className="w-8 h-8 bg-[#222222] text-[#f9f5ee] rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </motion.button>
+                      </div>
+                    </motion.div>
+
+                    {/* Łączne godziny dziennie */}
+                    <motion.div 
+                      variants={itemVariants}
+                      className="flex justify-between items-center py-4 px-4 bg-[#f9f5ee] rounded-lg"
+                    >
+                      <span className="font-medium text-[#222222]">{dailyHours} godzin dziennie</span>
+                      <span className="text-[#222222]">×</span>
+                    </motion.div>
+
+                    {/* Stawka godzinowa */}
+                    <motion.div 
+                      variants={itemVariants}
+                      className="flex justify-between items-center py-4 px-4 bg-[#f9f5ee] rounded-lg"
+                    >
+                      <span className="font-medium text-[#222222]">Średnia stawka {hourlyRate} PLN/h</span>
+                      <div className="flex gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => updateHourlyRate(-5)}
+                          className="w-8 h-8 bg-[#222222] text-[#f9f5ee] rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors"
+                        >
+                          <Minus className="h-4 w-4" />
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => updateHourlyRate(5)}
+                          className="w-8 h-8 bg-[#222222] text-[#f9f5ee] rounded-full flex items-center justify-center hover:bg-[#333333] transition-colors"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </motion.button>
+                      </div>
+                    </motion.div>
+
+                    {/* Komunikat po lewej - widoczny tylko na desktop */}
+                    <div className="hidden md:block mt-16">
+                      <div className="py-6 px-4 bg-[#f9f5ee] rounded-lg">
+                        <p className="text-[#222222] text-sm text-center italic">
+                          Pamiętaj, że nasz kalkulator nie uwzględnia utraconych możliwości, błędów, opóźnień i frustracji zespołu...
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    variants={containerVariants}
+                    className="space-y-6"
+                  >
+                    <motion.div 
+                      variants={numberVariants}
+                      whileHover={{ scale: 1.05 }}
+                      key="daily-cost"
+                      className="text-center py-3 px-4 bg-red-50 rounded-lg border-2 border-red-200 cursor-pointer transition-all duration-300"
+                    >
+                      <div className="text-3xl font-bold text-red-600 mb-2">{formatPrice(dailyCost)} PLN</div>
+                      <div className="text-red-800">dziennie</div>
+                    </motion.div>
+                    <motion.div 
+                      variants={numberVariants}
+                      whileHover={{ scale: 1.05 }}
+                      key="monthly-cost"
+                      className="text-center py-3 px-4 bg-red-100 rounded-lg border-2 border-red-300 cursor-pointer transition-all duration-300"
+                    >
+                      <div className="text-3xl font-bold text-red-700 mb-2">{formatPrice(monthlyCost)} PLN</div>
+                      <div className="text-red-900">miesięcznie</div>
+                    </motion.div>
+                    <motion.div 
+                      variants={numberVariants}
+                      animate={{ 
+                        scale: [1, 1.03, 1, 1.03, 1]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      key="yearly-cost"
+                      className="text-center py-3 px-4 bg-red-200 rounded-lg border-2 border-red-400"
+                    >
+                      <div className="text-4xl font-bold text-red-800 mb-2">{formatPrice(yearlyCost)} PLN</div>
+                      <div className="text-red-900 font-semibold">rocznie</div>
+                    </motion.div>
+
+                    {/* Przycisk po prawej - widoczny tylko na desktop */}
+                    <div className="hidden md:flex justify-center mt-8">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        className="w-full bg-green-100 text-green-800 hover:bg-green-200 transition-all duration-300 px-6 py-3 rounded-lg font-semibold text-sm justify-center will-change-transform border-2 border-green-800"
+                        data-tally-open="wMqZ70"
+                        data-tally-layout="modal"
+                        data-tally-width="1000"
+                        data-tally-emoji-text="👋"
+                        data-tally-emoji-animation="wave"
+                      >
+                        <div className="text-center">
+                          <div className="text-lg">Wyeliminuj te straty!</div>
+                          <div>Kliknij i umów się teraz na bezpłatną konsultację</div>
+                        </div>
+                      </motion.button>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Na mobile - elementy jeden pod drugim */}
+                <div className="md:hidden space-y-4 mt-12">
+                  <p className="text-[#222222] text-sm text-center p-4 bg-[#f9f5ee] rounded-lg italic">
+                    Pamiętaj, że nasz kalkulator nie uwzględnia utraconych możliwości, błędów, opóźnień i frustracji zespołu...
+                  </p>
+                  <div className="flex justify-center">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      className="w-full bg-green-100 text-green-800 hover:bg-green-200 transition-all duration-300 px-6 py-3 rounded-lg font-semibold text-sm justify-center will-change-transform border-2 border-green-800"
+                      data-tally-open="wMqZ70"
+                      data-tally-layout="modal"
+                      data-tally-width="1000"
+                      data-tally-emoji-text="👋"
+                      data-tally-emoji-animation="wave"
+                    >
+                      <div className="text-center">
+                        <div className="text-lg">Wyeliminuj te straty!</div>
+                        <div>Umów się teraz na bezpłatną konsultację</div>
+                      </div>
+                    </motion.button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </motion.div>
       </div>
     </section>
