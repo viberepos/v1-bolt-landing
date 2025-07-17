@@ -1,0 +1,274 @@
+{
+  "designSystem": {
+    "name": "Modern Tech Presentation System",
+    "version": "1.0",
+    "description": "A premium, minimalist design system for tech presentations featuring high-contrast layouts and metallic 3D elements",
+    
+    "colorPalette": {
+      "primary": {
+        "background": "#000000",
+        "surface": "#1a1a1a", 
+        "text": "#ffffff",
+        "accent": "#f5f5f5"
+      },
+      "metallic": {
+        "chrome": "#c0c0c0",
+        "silver": "#e8e8e8",
+        "reflective": "#f0f0f0",
+        "shadow": "#808080"
+      },
+      "semantic": {
+        "muted": "#888888",
+        "subtle": "#666666"
+      }
+    },
+
+    "typography": {
+      "fontFamily": {
+        "primary": "system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+        "fallback": "Arial, Helvetica, sans-serif"
+      },
+      "hierarchy": {
+        "hero": {
+          "fontSize": "clamp(3rem, 8vw, 6rem)",
+          "fontWeight": "700",
+          "lineHeight": "0.9",
+          "letterSpacing": "-0.02em",
+          "textTransform": "uppercase"
+        },
+        "headline": {
+          "fontSize": "clamp(2rem, 5vw, 4rem)",
+          "fontWeight": "700",
+          "lineHeight": "1.1",
+          "letterSpacing": "-0.01em",
+          "textTransform": "uppercase"
+        },
+        "subheadline": {
+          "fontSize": "clamp(1.2rem, 3vw, 1.8rem)",
+          "fontWeight": "400",
+          "lineHeight": "1.4",
+          "letterSpacing": "0"
+        },
+        "body": {
+          "fontSize": "clamp(1rem, 2.5vw, 1.25rem)",
+          "fontWeight": "300",
+          "lineHeight": "1.6",
+          "letterSpacing": "0.01em"
+        },
+        "caption": {
+          "fontSize": "0.875rem",
+          "fontWeight": "400",
+          "lineHeight": "1.4",
+          "letterSpacing": "0.1em",
+          "textTransform": "uppercase"
+        }
+      }
+    },
+
+    "layout": {
+      "grid": {
+        "columns": 12,
+        "gutters": "2rem",
+        "margins": {
+          "mobile": "1.5rem",
+          "tablet": "3rem", 
+          "desktop": "4rem"
+        }
+      },
+      "spacing": {
+        "xs": "0.5rem",
+        "sm": "1rem",
+        "md": "2rem",
+        "lg": "4rem",
+        "xl": "6rem",
+        "xxl": "8rem"
+      },
+      "breakpoints": {
+        "mobile": "480px",
+        "tablet": "768px",
+        "desktop": "1024px",
+        "wide": "1440px"
+      }
+    },
+
+    "visualElements": {
+      "3dElements": {
+        "type": "metallic-fluid-sculptures",
+        "characteristics": [
+          "Chrome/silver metallic finish",
+          "Organic, flowing shapes",
+          "High reflectivity and specularity",
+          "Abstract geometric forms",
+          "Liquid-like distortions",
+          "Multiple light reflections"
+        ],
+        "placement": {
+          "positioning": "decorative-asymmetric",
+          "density": "sparse",
+          "scale": "large-impact",
+          "distribution": "corner-emphasis"
+        },
+        "renderingStyle": {
+          "material": "chrome-reflective",
+          "lighting": "studio-professional",
+          "shadows": "soft-ambient",
+          "environment": "dark-void"
+        }
+      },
+      
+      "brandElement": {
+        "identifier": "TECH COMPANY",
+        "placement": "top-right-corner",
+        "styling": {
+          "fontSize": "0.75rem",
+          "fontWeight": "400",
+          "letterSpacing": "0.15em",
+          "opacity": "0.7",
+          "textTransform": "uppercase"
+        }
+      }
+    },
+
+    "layoutPatterns": {
+      "heroSection": {
+        "structure": "center-focus",
+        "textAlignment": "center",
+        "maxWidth": "80%",
+        "verticalCentering": true,
+        "negativeSpace": "abundant"
+      },
+      
+      "contentSection": {
+        "structure": "asymmetric-split",
+        "textColumn": "60%",
+        "visualColumn": "40%",
+        "textAlignment": "left",
+        "verticalAlignment": "center"
+      },
+
+      "dataSection": {
+        "structure": "three-column-grid",
+        "spacing": "equal-distribution",
+        "alignment": "center",
+        "emphasis": "typography-hierarchy"
+      },
+
+      "listSection": {
+        "structure": "card-grid",
+        "itemSpacing": "generous",
+        "cardStyle": "minimal-outlined",
+        "contentAlignment": "left"
+      }
+    },
+
+    "designPrinciples": {
+      "aesthetic": {
+        "style": "ultra-minimalist",
+        "mood": "premium-futuristic",
+        "contrast": "high-impact",
+        "sophistication": "luxury-tech"
+      },
+      
+      "composition": {
+        "balance": "asymmetric-dynamic",
+        "hierarchy": "typography-driven",
+        "whitespace": "generous-breathing-room",
+        "focus": "single-point-attention"
+      },
+
+      "interaction": {
+        "transitions": "subtle-elegant",
+        "hover": "minimal-feedback",
+        "animation": "physics-based-organic"
+      }
+    },
+
+    "componentGuidelines": {
+      "slide": {
+        "backgroundColor": "#000000",
+        "minHeight": "100vh",
+        "padding": "4rem",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center"
+      },
+
+      "textBlock": {
+        "maxWidth": "800px",
+        "lineHeight": "1.6",
+        "color": "#ffffff",
+        "marginBottom": "2rem"
+      },
+
+      "decorativeElement": {
+        "position": "absolute",
+        "pointerEvents": "none",
+        "zIndex": "-1",
+        "filter": "brightness(1.1) contrast(1.2)"
+      },
+
+      "dataVisualization": {
+        "style": "minimal-clean",
+        "colors": "monochromatic-white",
+        "emphasis": "typography-over-graphics",
+        "spacing": "generous-margins"
+      }
+    },
+
+    "contentStrategy": {
+      "messaging": {
+        "tone": "confident-professional",
+        "length": "concise-impactful",
+        "structure": "hierarchy-driven",
+        "emphasis": "key-numbers-prominent"
+      },
+
+      "informationDensity": {
+        "approach": "minimal-focused",
+        "ratio": "80-20-text-to-visual",
+        "chunking": "single-concept-per-slide",
+        "progression": "logical-narrative-flow"
+      }
+    },
+
+    "technicalImplementation": {
+      "rendering": {
+        "performance": "60fps-smooth",
+        "optimization": "lazy-load-3d-elements",
+        "responsiveness": "fluid-scaling",
+        "accessibility": "high-contrast-compliant"
+      },
+
+      "3dGeneration": {
+        "technique": "procedural-fluid-simulation",
+        "materials": "pbr-metallic-workflow",
+        "lighting": "three-point-studio-setup",
+        "postProcessing": "subtle-bloom-reflection"
+      }
+    },
+
+    "adaptationRules": {
+      "contentTypes": {
+        "vision": "center-aligned-inspirational",
+        "mission": "left-aligned-detailed",
+        "data": "grid-structured-comparative", 
+        "roadmap": "timeline-progressive",
+        "products": "showcase-grid-symmetrical"
+      },
+
+      "scalability": {
+        "mobile": "single-column-stack",
+        "tablet": "two-column-hybrid",
+        "desktop": "full-asymmetric-layout",
+        "presentation": "large-scale-projection-optimized"
+      }
+    },
+
+    "qualityMetrics": {
+      "visualImpact": "high-memorability",
+      "readability": "optimal-viewing-distance",
+      "brandAlignment": "premium-tech-positioning",
+      "usability": "intuitive-navigation"
+    }
+  }
+}
