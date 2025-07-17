@@ -47,40 +47,33 @@ export function Hero() {
   }
 
   return (
-    <section className="tech-background relative overflow-hidden">
-      {/* Tech Company Brand Mark */}
-      <div className="tech-brand-mark">
-        VIBEAPPS
-      </div>
-
-      <div className="tech-container flex items-center justify-center min-h-screen">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-5xl mx-auto"
-        >
-          {/* Main Headline */}
-          <motion.h1 
-            variants={textVariants}
-            className="tech-hero-title mb-8"
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#f9f5ee] to-[#f9f5ee]/80 pt-4 pb-8 lg:pt-6 lg:pb-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+          <motion.div
+            ref={ref}
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="lg:col-span-7"
           >
-            TRANSFORMACJA
-            <br />
-            PROCESÓW
-            <br />
-            BIZNESOWYCH
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p 
-            variants={textVariants}
-            className="tech-subheadline max-w-4xl mx-auto mb-12 opacity-90"
-          >
-            Zwiększ wydajność firmy o 300%. Dedykowane systemy, 
-            oszczędność czasu i pieniędzy. Gotowe rozwiązanie w 3-8 tygodni.
-          </motion.p>
+            <motion.h1 
+              variants={itemVariants}
+              className="text-4xl font-bold tracking-tight text-[#222222] sm:text-5xl lg:text-6xl"
+            >
+              Ile Twoja firma traci czasu i pieniądzy na{" "}
+              <span className="text-[#222222] underline decoration-4 decoration-[#222222]/30">
+                przestarzałych procesach
+              </span>{" "}
+              biznesowych?
+            </motion.h1>
+            <motion.p 
+              variants={itemVariants}
+              className="mt-6 text-xl text-[#222222]/70 max-w-3xl"
+            >
+              Wyobraź sobie, że Twój zespół przestaje narzekać na powtarzalną pracę, kończą się dziesiątki telefonów
+              dziennie z pytaniami o etap prac, a Twoje oferty powstają w 15 minut zamiast 3 dni.
+            </motion.p>
 
           {/* Stats Grid */}
           <motion.div 
