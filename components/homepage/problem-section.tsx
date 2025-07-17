@@ -43,41 +43,51 @@ export function ProblemSection() {
     }
   }
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
-      y: 0,
       opacity: 1,
+      y: 0,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
       }
     }
   }
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="tech-background tech-spacing-lg">
+      <div className="tech-container">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <motion.h2 
-            variants={itemVariants}
-            className="text-3xl font-bold text-[#222222] sm:text-4xl lg:text-5xl mb-6"
+            variants={textVariants}
+            className="tech-headline mb-8"
           >
-            Nie trać kolejnych miesięcy i tysięcy złotych na nieefektywne procesy
+            PROBLEM
           </motion.h2>
           <motion.p 
-            variants={itemVariants}
-            className="text-xl text-[#222222]/70 max-w-3xl mx-auto"
+            variants={textVariants}
+            className="tech-subheadline max-w-3xl mx-auto opacity-90"
           >
-            Każdy dzień z nieefektywnymi procesami to wymierny koszt dla Twojego biznesu. Czy możesz sobie pozwolić na
-            dalsze odkładanie digitalizacji?
+            Większość firm traci czas i pieniądze na przestarzałych procesach biznesowych
           </motion.p>
         </motion.div>
 
@@ -85,24 +95,30 @@ export function ProblemSection() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {problems.map((problem, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              className="text-center group cursor-pointer"
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="tech-card group cursor-pointer"
             >
-              <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-[#f9f5ee] rounded-full mb-6 group-hover:bg-[#222222] transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-              >
-                <problem.icon className="h-8 w-8 text-[#222222] group-hover:text-[#f9f5ee] transition-colors duration-300" />
-              </motion.div>
-              <h3 className="text-xl font-semibold text-[#222222] mb-4">{problem.title}</h3>
-              <p className="text-[#222222]/70">{problem.description}</p>
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
+                    <problem.icon className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="tech-subheadline !text-lg !font-semibold mb-3 group-hover:text-white/90 transition-colors duration-300">
+                    {problem.title}
+                  </h3>
+                  <p className="tech-body !text-base opacity-80 group-hover:opacity-90 transition-opacity duration-300">
+                    {problem.description}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

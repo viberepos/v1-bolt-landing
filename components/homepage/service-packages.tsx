@@ -2,7 +2,6 @@
 
 import { Check, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -11,6 +10,57 @@ export function ServicePackages() {
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const packages = [
+    {
+      name: "Optymalizacja",
+      description: "Usprawnienie istniejących procesów",
+      popular: false,
+      features: [
+        "Analiza obecnych procesów",
+        "Identyfikacja wąskich gardeł",
+        "Optymalizacja workflow",
+        "Zwiększenie wydajności o 30%",
+        "Wsparcie przez 3 miesiące",
+      ],
+    },
+    {
+      name: "Automatyzacja",
+      description: "Automatyzacja kluczowych procesów",
+      popular: true,
+      features: [
+        "Automatyzacja zadań powtarzalnych",
+        "Integracja z istniejącymi systemami",
+        "Skrócenie czasu procesów o 60%",
+        "Redukcja błędów o 90%",
+        "Wsparcie przez 6 miesięcy",
+      ],
+    },
+    {
+      name: "Dedykowane CRM",
+      description: "System zarządzania klientami",
+      popular: false,
+      features: [
+        "Indywidualny system CRM",
+        "Zarządzanie bazą klientów",
+        "Automatyzacja sprzedaży",
+        "Integracja z e-mailem",
+        "Wsparcie przez 12 miesięcy",
+      ],
+    },
+    {
+      name: "Kompletny system",
+      description: "Pełna transformacja cyfrowa",
+      popular: false,
+      features: [
+        "Kompleksowa digitalizacja",
+        "Wszystkie procesy w jednym systemie",
+        "Integracja z zewnętrznymi API",
+        "Mobilna aplikacja",
+        "Wsparcie bezterminowo",
+      ],
+    },
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -22,130 +72,51 @@ export function ServicePackages() {
     }
   }
 
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
-      y: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  }
-
-  const headerVariants = {
-    hidden: { y: -30, opacity: 0 },
-    visible: {
       y: 0,
-      opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 120,
-        damping: 20
+        duration: 0.8,
+        ease: "easeOut"
       }
     }
   }
 
   const cardVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
-      scale: 1,
       opacity: 1,
+      y: 0,
       transition: {
-        type: "spring",
-        stiffness: 120,
-        damping: 20
+        duration: 0.6,
+        ease: "easeOut"
       }
     }
   }
-
-  const featureVariants = {
-    hidden: { x: -20, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 150,
-        damping: 20
-      }
-    }
-  }
-
-  const packages = [
-    {
-      name: "MVP CHECK",
-      description: "Idealne do walidacji pomysłów biznesowych",
-      features: [
-        "Działający prototyp w 3-4 tygodnie",
-        "Możliwość testowania na realnych użytkownikach",
-        "Konkretne dane zamiast domysłów",
-        "Pełne wsparcie wdrożeniowe i powdrożeniowe",
-      ],
-      ideal: "Masz innowacyjny pomysł, ale nie chcesz ryzykować dużych inwestycji",
-      popular: false,
-    },
-    {
-      name: "EVOLVE",
-      description: "Idealne dla firm na etapie optymalizacji procesów",
-      features: [
-        "Uproszczenie powtarzalnych, czasochłonnych zadań",
-        "Eliminacja błędów ludzkich w procesach",
-        "Usprawnienie przepływu informacji między działami",
-        "Pełne wsparcie wdrożeniowe i powdrożeniowe",
-      ],
-      ideal: "Tracisz cenne godziny na powtarzalnych, manualnych zadaniach",
-      popular: true,
-    },
-    {
-      name: "ADVANCED",
-      description: "Dedykowane dla firm poszukujących kompleksowych rozwiązań",
-      features: [
-        "Zaawansowane narzędzia wspierające kluczowe procesy",
-        "Złożone funkcjonalności i rozbudowane moduły",
-        "Dedykowane panele raportowe z różnymi poziomami dostępu",
-        "Pełne wsparcie wdrożeniowe i powdrożeniowe",
-      ],
-      ideal: "Potrzebujesz pełnego wglądu w dane do podejmowania strategicznych decyzji",
-      popular: false,
-    },
-    {
-      name: "ULTIMATE",
-      description: "Do realizacji przedsięwzięć wymagających pełnego potencjału",
-      features: [
-        "Kompleksowe rozwiązania FullStack",
-        "Dedykowany zespół programistów",
-        "Architektura przygotowana na znaczący wzrost",
-        "Pełne wsparcie wdrożeniowe i powdrożeniowe",
-      ],
-      ideal: "Potrzebujesz zaawansowanego rozwiązania jako fundamentu biznesu",
-      popular: false,
-    },
-  ]
 
   return (
-    <section id="service-packages-section" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="tech-background tech-spacing-lg">
+      <div className="tech-container">
         <motion.div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <motion.h2 
-            variants={headerVariants}
-            className="text-3xl font-bold text-[#222222] sm:text-4xl lg:text-5xl mb-6"
+            variants={textVariants}
+            className="tech-headline mb-8"
           >
-            Najczęściej realizowane usługi dla naszych klientów
+            ROADMAP
           </motion.h2>
           <motion.p 
-            variants={headerVariants}
-            className="text-xl text-[#222222]/70 max-w-3xl mx-auto"
+            variants={textVariants}
+            className="tech-subheadline max-w-3xl mx-auto opacity-90"
           >
-            Dopasuj rozwiązania do swoich potrzeb, nigdy na odwrót!
+            Dopasuj rozwiązania do swoich potrzeb, nigdy na odwrót
           </motion.p>
         </motion.div>
 
@@ -160,81 +131,45 @@ export function ServicePackages() {
               key={index}
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="group"
+              className="group relative"
             >
-              <Card className={`relative h-full ${pkg.popular ? "ring-2 ring-[#222222] shadow-2xl" : "shadow-lg"} hover:shadow-xl transition-all duration-300`}>
+              <div className={`tech-card h-full ${pkg.popular ? "ring-2 ring-white/50" : ""}`}>
                 {pkg.popular && (
-                  <motion.div 
-                    className="absolute -top-4 left-1/2 transform -translate-x-1/2"
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.3 }}
-                  >
-                    <div className="bg-[#222222] text-[#f9f5ee] px-4 py-2 rounded-full text-sm font-semibold flex items-center">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold flex items-center">
                       <Star className="h-4 w-4 mr-1" />
                       Najpopularniejszy
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
-                <CardHeader className="text-center pb-4">
-                  <motion.div variants={itemVariants}>
-                    <CardTitle className="text-2xl font-bold text-[#222222] mb-2">{pkg.name}</CardTitle>
-                    <p className="text-sm text-[#222222]/70">{pkg.description}</p>
-                  </motion.div>
-                </CardHeader>
+                <div className="text-center pb-4">
+                  <h3 className="tech-subheadline !text-xl !font-bold mb-2">{pkg.name}</h3>
+                  <p className="tech-body !text-sm opacity-80">{pkg.description}</p>
+                </div>
 
-                <CardContent className="space-y-6">
-                  <motion.div 
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-[#f9f5ee] p-4 rounded-lg group-hover:bg-[#f9f5ee]/80 transition-colors duration-300"
+                <div className="space-y-4">
+                  {pkg.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start space-x-3">
+                      <Check className="h-5 w-5 text-white/60 mt-0.5 flex-shrink-0" />
+                      <span className="tech-body !text-sm opacity-80">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/20">
+                  <Button 
+                    className="tech-button-outline w-full"
+                    data-tally-open="wMqZ70"
+                    data-tally-layout="modal"
+                    data-tally-width="1000"
+                    data-tally-emoji-text="👋"
+                    data-tally-emoji-animation="wave"
                   >
-                    <p className="text-sm text-[#222222] font-medium">Dla Ciebie, jeśli:</p>
-                    <p className="text-sm text-[#222222]/70 mt-2">{pkg.ideal}</p>
-                  </motion.div>
-
-                  <motion.div 
-                    variants={containerVariants}
-                    className="space-y-3"
-                  >
-                    <p className="font-semibold text-[#222222]">Co zyskujesz:</p>
-                    {pkg.features.map((feature, featureIndex) => (
-                      <motion.div 
-                        key={featureIndex} 
-                        variants={featureVariants}
-                        whileHover={{ x: 5 }}
-                        className="flex items-start space-x-3 group/feature cursor-pointer"
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.2 }}
-                          transition={{ duration: 0.6 }}
-                        >
-                          <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5 group-hover/feature:text-green-700 transition-colors" />
-                        </motion.div>
-                        <span className="text-sm text-[#222222]/70 group-hover/feature:text-[#222222] transition-colors">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-
-                  <motion.div variants={itemVariants}>
-                    <Button
-                      className={`w-full transition-all duration-300 ${
-                        pkg.popular
-                          ? "bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 hover:scale-105"
-                          : "bg-[#f9f5ee] text-[#222222] border border-[#222222] hover:bg-[#222222] hover:text-[#f9f5ee] hover:scale-105"
-                      }`}
-                      data-tally-open="wMqZ70"
-                      data-tally-layout="modal"
-                      data-tally-width="1000"
-                      data-tally-emoji-text="👋"
-                      data-tally-emoji-animation="wave"
-                    >
-                      Umów darmową konsultację
-                    </Button>
-                  </motion.div>
-                </CardContent>
-              </Card>
+                    Umów konsultację
+                  </Button>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
