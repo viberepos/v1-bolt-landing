@@ -64,7 +64,7 @@ export function Hero() {
               <span className="text-[#222222] underline decoration-4 decoration-[#222222]/30">
                 przestarzałych procesach
               </span>{" "}
-              biznesowych?
+              biznesowych? 
             </motion.h1>
             <motion.p 
               variants={itemVariants}
