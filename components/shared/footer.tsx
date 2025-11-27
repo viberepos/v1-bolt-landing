@@ -197,7 +197,8 @@ export function Footer() {
         </motion.div>
       </div>
       
-      {/* Biały pasek z obrazkiem funduszy europejskich */}
+      {/* Biały pasek z obrazkiem funduszy europejskich - ZAKOMENTOWANE */}
+      {/* 
       <div className="w-full bg-white my-8 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center h-[100px]">
           <Image
@@ -210,6 +211,7 @@ export function Footer() {
           />
         </div>
       </div>
+      */}
     </footer>
   )
 } 
