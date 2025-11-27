@@ -196,6 +196,20 @@ export function Footer() {
           </motion.p>
         </motion.div>
       </div>
+      
+      {/* Biały pasek z obrazkiem funduszy europejskich */}
+      <div className="w-full bg-white py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <Image
+            src="https://bec-group.pl/wp-content/uploads/2025/11/askabase-fundusze-europejskie-scaled.jpg"
+            alt="Fundusze Europejskie"
+            width={0}
+            height={350}
+            className="h-[350px] w-auto"
+            unoptimized
+          />
+        </div>
+      </div>
     </footer>
   )
 } 
