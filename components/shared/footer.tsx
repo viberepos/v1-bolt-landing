@@ -192,7 +192,7 @@ export function Footer() {
             className="text-[#222222]/70"
             whileHover={{ scale: 1.02 }}
           >
-            © 2024-2025 VibeApps. Wszystkie prawa zastrzeżone.
+            © 2024-2026 VibeApps. Wszystkie prawa zastrzeżone.
           </motion.p>
         </motion.div>
       </div>
