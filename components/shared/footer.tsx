@@ -197,17 +197,38 @@ export function Footer() {
         </motion.div>
       </div>
       
-      {/* Biały pasek z obrazkiem funduszy europejskich */}
-      <div className="w-full bg-white my-8 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center h-[100px]">
-          <Image
-            src="https://bec-group.pl/wp-content/uploads/2025/11/askabase-fundusze-europejskie-scaled.jpg"
-            alt="Fundusze Europejskie"
-            width={0}
-            height={150}
-            className="h-full w-auto object-contain"
-            unoptimized
-          />
+      {/* Biały pasek z informacją o dofinansowaniu z funduszy europejskich */}
+      <div className="w-full bg-white my-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            {/* Logo funduszy europejskich */}
+            <div className="flex-shrink-0">
+              <Image
+                src="https://bec-group.pl/wp-content/uploads/2025/11/askabase-fundusze-europejskie-scaled.jpg"
+                alt="Fundusze Europejskie"
+                width={0}
+                height={100}
+                className="h-[100px] w-auto object-contain"
+                unoptimized
+              />
+            </div>
+            
+            {/* Informacje o projekcie */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              {/* <p className="text-[#222222] font-semibold text-base mb-1">
+                BEC Group Sp. z o.o.
+              </p> */}
+              <p className="text-[#222222] text-sm mb-1">
+                Realizuje projekt <span className="font-semibold">"Askabase"</span>
+              </p>
+              <p className="text-[#222222] text-sm mb-1">
+                Dofinansowanie projektu z UE:
+              </p>
+              <p className="text-[#222222] text-sm font-semibold">
+                350 000,00 zł
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
