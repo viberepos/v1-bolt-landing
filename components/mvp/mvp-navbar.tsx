@@ -72,9 +72,9 @@ export function MVPNavbar() {
               <Image 
                 src="/images/logo/Dotacja2.png" 
                 alt="Dofinansowano z Unii Europejskiej" 
-                width={32}
-                height={32}
-                className="h-8 w-auto object-contain"
+                width={40}
+                height={40}
+                className="h-10 w-auto object-contain"
                 unoptimized
               />
             </button>
