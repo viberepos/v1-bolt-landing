@@ -112,6 +112,13 @@ export function Navbar() {
               >
                 Szybkie MVP
               </Link>
+              <button
+                type="button"
+                onClick={() => setIsDialogOpen(true)}
+                className="text-[#222222] hover:text-[#222222]/70 px-3 py-2 text-sm font-medium bg-transparent border-none cursor-pointer"
+              >
+                Projekty UE
+              </button>
               <Button 
                 className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90"
                 data-tally-open="wMqZ70"
@@ -167,6 +174,16 @@ export function Navbar() {
             >
               Szybkie MVP
             </Link>
+            <button
+              type="button"
+              onClick={() => {
+                setIsDialogOpen(true)
+                setIsOpen(false)
+              }}
+              className="text-[#222222] hover:text-[#222222]/70 block px-3 py-2 text-base font-medium w-full text-left bg-transparent border-none cursor-pointer"
+            >
+              Projekty UE
+            </button>
             <Button 
               className="bg-[#222222] text-[#f9f5ee] hover:bg-[#222222]/90 w-full mt-2"
               data-tally-open="wMqZ70"
