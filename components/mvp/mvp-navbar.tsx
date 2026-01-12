@@ -5,11 +5,19 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 export function MVPNavbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -44,7 +52,7 @@ export function MVPNavbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center">
               <Image 
                 src="/images/logo/2 Logo VibeApps poziom bez tła.png" 
@@ -55,6 +63,21 @@ export function MVPNavbar() {
                 className="h-10 w-auto"
               />
             </Link>
+            <button
+              type="button"
+              onClick={() => setIsDialogOpen(true)}
+              className="flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer p-1"
+              aria-label="Informacje o dofinansowaniu z Unii Europejskiej"
+            >
+              <Image 
+                src="/images/logo/Dotacja2.png" 
+                alt="Dofinansowano z Unii Europejskiej" 
+                width={32}
+                height={32}
+                className="h-8 w-auto object-contain"
+                unoptimized
+              />
+            </button>
           </div>
 
           <div className="hidden md:block">
@@ -144,6 +167,53 @@ export function MVPNavbar() {
           </div>
         </div>
       )}
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Dofinansowanie projektu z Unii Europejskiej</DialogTitle>
+            <DialogDescription>
+              Informacje o projekcie realizowanym w ramach funduszy europejskich
+            </DialogDescription>
+          </DialogHeader>
+          <div className="pt-0 pb-4">
+            <div className="flex flex-col items-center gap-4 mb-3 -mt-2">
+              <Image
+                src="https://bec-group.pl/wp-content/uploads/2025/11/askabase-fundusze-europejskie-scaled.jpg"
+                alt="Fundusze Europejskie"
+                width={0}
+                height={100}
+                className="h-[100px] w-auto object-contain"
+                unoptimized
+              />
+            </div>
+            <div className="space-y-4 text-left">
+              <h3 className="text-[#222222] text-lg font-semibold">
+                Projekt „Askabase"
+              </h3>
+              <p className="text-[#222222] text-sm leading-relaxed">
+                Projekt „Askabase" jest współfinansowany ze środków Unii Europejskiej w ramach programu Fundusze Europejskie dla Nowoczesnej Gospodarki (FENG), Priorytet II – Środowisko sprzyjające innowacjom (akcelerator Kozminski Impact Booster).
+              </p>
+              <p className="text-[#222222] text-sm leading-relaxed">
+                Celem projektu jest stworzenie innowacyjnego, inteligentnego asystenta dla biur rachunkowych, opartego na zaawansowanych rozwiązaniach programistycznych. System ma na celu rewolucję w codziennej pracy z danymi, umożliwiając skrócenie czasu wyszukiwania informacji o kontrahentach, analizy dokumentacji oraz przygotowywania podsumowań z godzin do zaledwie kilku sekund. Rozwiązanie dedykowane jest właścicielom, managerom oraz pracownikom biur rachunkowych, realnie wpływając na oszczędność czasu i wyższą efektywność pracy.
+              </p>
+              <div className="space-y-2 pt-2 border-t border-[#222222]/10">
+                <p className="text-[#222222] text-sm">
+                  <span className="font-semibold">Wartość projektu:</span> 350 000,00 zł
+                </p>
+                <p className="text-[#222222] text-sm">
+                  <span className="font-semibold">Wysokość wkładu Funduszy Europejskich:</span> 350 000,00 zł
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#222222]/10">
+                <p className="text-[#222222] text-xs text-[#222222]/70">
+                  #FunduszeEuropejskie #FunduszeEU #KozminskiImpactBooster #Askabase #AI #NowoczesnaKsięgowość #FENG
+                </p>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </nav>
   )
 } 

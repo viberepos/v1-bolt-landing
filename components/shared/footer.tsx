@@ -1,16 +1,25 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 export function Footer() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
     const section = document.querySelector(sectionId);
@@ -200,9 +209,36 @@ export function Footer() {
       {/* Biały pasek z informacją o dofinansowaniu z funduszy europejskich */}
       <div className="w-full bg-white my-8 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            {/* Logo funduszy europejskich */}
-            <div className="flex-shrink-0">
+          <div className="flex justify-center items-center">
+            <button
+              type="button"
+              onClick={() => setIsDialogOpen(true)}
+              className="flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer"
+              aria-label="Informacje o dofinansowaniu z Unii Europejskiej"
+            >
+              <Image
+                src="https://bec-group.pl/wp-content/uploads/2025/11/askabase-fundusze-europejskie-scaled.jpg"
+                alt="Fundusze Europejskie"
+                width={0}
+                height={100}
+                className="h-[100px] w-auto object-contain"
+                unoptimized
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Dofinansowanie projektu z Unii Europejskiej</DialogTitle>
+            <DialogDescription>
+              Informacje o projekcie realizowanym w ramach funduszy europejskich
+            </DialogDescription>
+          </DialogHeader>
+          <div className="pt-0 pb-4">
+            <div className="flex flex-col items-center gap-4 mb-3 -mt-2">
               <Image
                 src="https://bec-group.pl/wp-content/uploads/2025/11/askabase-fundusze-europejskie-scaled.jpg"
                 alt="Fundusze Europejskie"
@@ -212,25 +248,33 @@ export function Footer() {
                 unoptimized
               />
             </div>
-            
-            {/* Informacje o projekcie */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              {/* <p className="text-[#222222] font-semibold text-base mb-1">
-                BEC Group Sp. z o.o.
-              </p> */}
-              <p className="text-[#222222] text-sm mb-1">
-                Realizuje projekt <span className="font-semibold">"Askabase"</span>
+            <div className="space-y-4 text-left">
+              <h3 className="text-[#222222] text-lg font-semibold">
+                Projekt „Askabase"
+              </h3>
+              <p className="text-[#222222] text-sm leading-relaxed">
+                Projekt „Askabase" jest współfinansowany ze środków Unii Europejskiej w ramach programu Fundusze Europejskie dla Nowoczesnej Gospodarki (FENG), Priorytet II – Środowisko sprzyjające innowacjom (akcelerator Kozminski Impact Booster).
               </p>
-              <p className="text-[#222222] text-sm mb-1">
-                Dofinansowanie projektu z UE:
+              <p className="text-[#222222] text-sm leading-relaxed">
+                Celem projektu jest stworzenie innowacyjnego, inteligentnego asystenta dla biur rachunkowych, opartego na zaawansowanych rozwiązaniach programistycznych. System ma na celu rewolucję w codziennej pracy z danymi, umożliwiając skrócenie czasu wyszukiwania informacji o kontrahentach, analizy dokumentacji oraz przygotowywania podsumowań z godzin do zaledwie kilku sekund. Rozwiązanie dedykowane jest właścicielom, managerom oraz pracownikom biur rachunkowych, realnie wpływając na oszczędność czasu i wyższą efektywność pracy.
               </p>
-              <p className="text-[#222222] text-sm font-semibold">
-                350 000,00 zł
-              </p>
+              <div className="space-y-2 pt-2 border-t border-[#222222]/10">
+                <p className="text-[#222222] text-sm">
+                  <span className="font-semibold">Wartość projektu:</span> 350 000,00 zł
+                </p>
+                <p className="text-[#222222] text-sm">
+                  <span className="font-semibold">Wysokość wkładu Funduszy Europejskich:</span> 350 000,00 zł
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#222222]/10">
+                <p className="text-[#222222] text-xs text-[#222222]/70">
+                  #FunduszeEuropejskie #FunduszeEU #KozminskiImpactBooster #Askabase #AI #NowoczesnaKsięgowość #FENG
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </DialogContent>
+      </Dialog>
     </footer>
   )
 } 
