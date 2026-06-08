@@ -47,13 +47,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pl" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/images/logo/logo-square.png" sizes="any" />
         <link rel="apple-touch-icon" href="/images/logo/logo-square.png" />
         <script async src="https://tally.so/widgets/embed.js"></script>
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <ScrollToTop />
       </body>

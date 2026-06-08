@@ -247,6 +247,15 @@ export function Navbar() {
                   #FunduszeEuropejskie #FunduszeEU #KozminskiImpactBooster #Askabase #AI #NowoczesnaKsięgowość #FENG
                 </p>
               </div>
+              <div className="pt-3">
+                <Link
+                  href="/askabase"
+                  className="text-[#222222] text-sm font-semibold underline underline-offset-2 hover:text-[#222222]/70"
+                  onClick={() => setIsDialogOpen(false)}
+                >
+                  Więcej o projekcie Askabase →
+                </Link>
+              </div>
             </div>
           </div>
         </DialogContent>
